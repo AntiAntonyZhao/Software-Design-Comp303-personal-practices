@@ -18,6 +18,7 @@ public class Card
 {
 	private Rank aRank;
 	private Suit aSuit;
+	private boolean isJoker = false;
 	
 	/**
 	 * Creates a new card object.
@@ -39,7 +40,11 @@ public class Card
 	 */
 	public Rank getRank()
 	{
-		return aRank;
+		if(isJoker) {
+			return null;
+		}else {
+		return aRank;}
+		
 	}
 	
 	/**
@@ -47,6 +52,10 @@ public class Card
 	 */
 	public Suit getSuit()
 	{
+		if(isJoker) {
+			return null;
+		}else {
 		return aSuit;
+		}
 	}
 }

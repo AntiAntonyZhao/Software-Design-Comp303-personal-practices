@@ -9,18 +9,20 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter2;
+package chapter4;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
- * Represents a deck of playing cards. In this version, the cards in the 
- * deck are stored in a list and the list of cards in the deck can 
- * be obtained by client code using an immutable wrapper object.
+ * Represents a deck of playing cards. In this version the class 
+ * also defines a nested class Shuffler that can be used
+ * to shuffle a deck a remember the number of times it was
+ * shuffled.
  */
-public class Deck 
+public class Deck implements CardSource
 {
 	private List<Card> aCards = new ArrayList<>();
 	
@@ -42,7 +44,7 @@ public class Deck
 		{
             for( Rank rank : Rank.values() )
             {
-                aCards.add( new Card( rank, suit ));
+                aCards.add( Card.get( rank, suit ));
             }
 		}
 		Collections.shuffle(aCards);
@@ -81,19 +83,62 @@ public class Deck
 	}
 	
 	/**
-	 * @return An unmodifiable list of all the cards in the deck.
+	 * @return An instance of shuffler with this Deck as its outer instance.
 	 */
-	public List<Card> getCards()
+	public Shuffler newShuffler() { return new Shuffler(); }
+
+	/**
+	 * A class that can shuffle a deck and remember
+	 * the number of shuffles.
+	 */
+	public class Shuffler
 	{
-		return Collections.unmodifiableList(aCards);
-	}
-	public List<Card> getCards6()
-	{
-		List<Card> aCardsCopy = new ArrayList<>();
-		for(Card card : aCards) {
-			aCardsCopy.add(new Card (card.getRank(), card.getSuit()) );
+		private Shuffler() {}
+
+		private int aNumberOfShuffles = 0;
+
+		public void shuffle()
+		{
+			aNumberOfShuffles++;
+			Deck.this.shuffle();
 		}
-		return aCardsCopy;
+
+		public int getNumberOfShuffles()
+		{
+			return aNumberOfShuffles;
+		}
+	}
+	
+	/**
+	 * @param pRank The rank to use to compare the decks. 
+	 * @return A comparator that compares two decks based on the number of cards
+	 * of rank pRank that they contains.
+	 * 
+	 * Note that this version is improved from the code in the book,
+	 * by avoiding the unnecessary parameter pRank in CountCards.
+	 */
+	public static Comparator<Deck> createByRankComparator(Rank pRank)
+	{
+		return new Comparator<Deck>()
+		{
+			public int compare(Deck pDeck1, Deck pDeck2)
+			{
+				return countCards(pDeck1) - countCards(pDeck2);
+			}
+			
+			private int countCards(Deck pDeck)
+			{ 
+				int result = 0;
+				for( Card card : pDeck.aCards )
+				{
+					if( card.getRank() == pRank )
+					{
+						result++;
+					}
+				}
+				return result;
+			}
+		};
 	}
 }
 
