@@ -78,4 +78,14 @@ public class Card implements Comparable<Card>
 			}
 		};
 	}
+	public static Comparator<Card> createBySuitComparator()
+	{
+		return new Comparator<Card>()
+		{
+			public int compare(Card pCard1, Card pCard2)
+			{ 
+				return pCard1.aSuit.compareTo(pCard2.aSuit);
+			}
+		};
+	}
 }

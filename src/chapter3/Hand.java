@@ -8,6 +8,12 @@ import java.util.List;
 public class Hand implements Comparable<Hand>, Iterable<Card>{
 	private List<Card> aCards = new ArrayList<>();
 	private int maxN;
+	
+	
+	public Hand (int pM) {
+		assert pM > 0;
+		this.maxN = pM;
+	}
 
 	public void add(Card c) { //Q1
 		assert c!=null;
@@ -41,7 +47,6 @@ public class Hand implements Comparable<Hand>, Iterable<Card>{
 	}
 	public static Comparator<Hand> DescendingCompare(){
 		return new Comparator<Hand>() {
-
 			@Override
 			public int compare(Hand o1, Hand o2) {
 				return o2.aCards.size()-o1.aCards.size();
@@ -72,5 +77,6 @@ public class Hand implements Comparable<Hand>, Iterable<Card>{
 		// TODO Auto-generated method stub
 		return aCards.iterator();
 	}
+
 	
 }
