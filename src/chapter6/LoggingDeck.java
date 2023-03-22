@@ -35,10 +35,18 @@ public class LoggingDeck implements CardSource
 	}
 	
 	@Override
-	public LoggingDeck copy()
+	public LoggingDeck clone()
 	{
-		LoggingDeck copy = new LoggingDeck();
-		copy.aCards = new CardStack(copy.aCards);
-		return copy;
+		try
+		{
+			LoggingDeck clone = (LoggingDeck) super.clone();
+			clone.aCards = new CardStack(clone.aCards);
+			return clone;
+		}
+		catch (CloneNotSupportedException e)
+		{
+			assert false;
+			return null;
+		}
 	}
 }

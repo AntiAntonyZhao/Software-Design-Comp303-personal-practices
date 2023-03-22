@@ -11,17 +11,17 @@
  *******************************************************************************/
 package chapter5;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.EmptyStackException;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.function.Executable;
+import org.junit.Before;
+import org.junit.Test;
 
 public class TestFoundationPile
 {
@@ -29,7 +29,13 @@ public class TestFoundationPile
 	private static final Card TWO_CLUBS = Card.get(Rank.TWO, Suit.CLUBS);
 	private static final Card THREE_CLUBS = Card.get(Rank.THREE, Suit.CLUBS);
 	
-	private FoundationPile aPile = new FoundationPile();
+	private FoundationPile aPile;
+	
+	@Before
+	public void setUp() 
+	{ 
+		aPile = new FoundationPile(); 
+	}
 	
 	private int size()
 	{
@@ -62,18 +68,23 @@ public class TestFoundationPile
 		assertFalse(aPile.canMoveTo(THREE_CLUBS));
 	}
 	
-	@Test
+	@Test(expected = EmptyStackException.class)
 	public void testPeek_Empty_Version1()
 	{
-		assertThrows(EmptyStackException.class, new Executable()
+		aPile.peek();
+	}
+	
+	@Test
+	public void testPeek_Empty_Version2()
+	{
+		try
 		{
-			@Override
-			public void execute() throws Throwable
-			{
-				aPile.peek();
-			}
-		});
-				
+			aPile.peek();
+			fail();
+		}
+		catch(EmptyStackException e ) 
+		{}
+		assertTrue(aPile.isEmpty());
 	}
 	
 	@Test

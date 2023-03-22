@@ -39,8 +39,19 @@ public class LoggingDecorator implements CardSource
 	}
 	
 	@Override
-	public LoggingDecorator copy()
+	public LoggingDecorator clone()
 	{
-		return new LoggingDecorator(aSource.copy());
+		try
+		{
+			LoggingDecorator clone = (LoggingDecorator) super.clone();
+			clone.aSource = aSource.clone();
+			return clone;
+		}
+		catch (CloneNotSupportedException e)
+		{
+			assert false;
+			return null;
+		}
 	}
+	
 }

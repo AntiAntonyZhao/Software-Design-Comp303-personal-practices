@@ -1,9 +1,11 @@
 /*******************************************************************************
- * Companion code for the book "Introduction to Software Design with Java" by Martin P. Robillard.
+ * Companion code for the book "Introduction to Software Design with Java" 
+ * by Martin P. Robillard.
  *
  * Copyright (C) 2019 by Martin P. Robillard
  *
- * This code is licensed under a Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License.
+ * This code is licensed under a Creative Commons 
+ * Attribution-NonCommercial-NoDerivatives 4.0 International License.
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
@@ -13,7 +15,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A CardSource decorator that memorizes cards drawn from the source.
+ * A CardSource decorator that memorizes cards drawn from the
+ * source.
  */
 public class MemorizingDecorator implements CardSource
 {
@@ -40,12 +43,21 @@ public class MemorizingDecorator implements CardSource
 		aDrawnCards.add(card);
 		return card;
 	}
-
+	
 	@Override
-	public MemorizingDecorator copy()
+	public MemorizingDecorator clone()
 	{
-		MemorizingDecorator copy = new MemorizingDecorator(aElement.copy());
-		copy.aDrawnCards = new ArrayList<>(aDrawnCards);
-		return copy;
+		try
+		{
+			MemorizingDecorator clone = (MemorizingDecorator) super.clone();
+			clone.aElement = aElement.clone();
+			clone.aDrawnCards = new ArrayList<>(aDrawnCards);
+			return clone;
+		}
+		catch (CloneNotSupportedException e)
+		{
+			assert false;
+			return null;
+		}
 	}
 }
