@@ -50,6 +50,7 @@ public class TwelveDays
 	  return "On the " + DAYS[day] +
 	    " day of Christmas my true love sent to me:\n";
 	}
+
 	
 	/*
      * Returns a string that lists all the gifts received on a given
