@@ -9,7 +9,11 @@
  *
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter8;
+package lab3;
+
+import chapter8.Card;
+import chapter8.Rank;
+import chapter8.Suit;
 
 import java.util.ArrayList;
 import java.util.Collections;

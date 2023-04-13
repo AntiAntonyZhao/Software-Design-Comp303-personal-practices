@@ -9,14 +9,13 @@
  *
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter8;
+package lab3;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Observable;
-import java.util.Observer;
-import java.util.Optional;
+import chapter8.Card;
+import chapter8.Rank;
+import chapter8.Suit;
+
+import java.util.*;
 
 /**
  * Represents a deck of playing cards. In this version, the cards in the

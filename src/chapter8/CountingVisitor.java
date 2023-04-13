@@ -20,7 +20,7 @@ public class CountingVisitor extends AbstractCardSourceVisitor
 	private int aCount = 0;
 	
 	@Override
-	public void visitDeck(ObserverDeck1 pDeck)
+	public void visitDeck(Deck pDeck)
 	{
 		for( @SuppressWarnings("unused") Card card : pDeck)
 		{

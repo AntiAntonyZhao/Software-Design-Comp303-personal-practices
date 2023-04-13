@@ -20,7 +20,7 @@ public class PrintVisitor implements CardSourceVisitor
 	public static void main(String[] args)
 	{
 		PrintVisitor visitor = new PrintVisitor();
-		ObserverDeck1 deck = new ObserverDeck1();
+		Deck deck = new Deck();
 		deck.accept(visitor);
 	}
 	
@@ -34,7 +34,7 @@ public class PrintVisitor implements CardSourceVisitor
 	}
 
 	@Override
-	public void visitDeck(ObserverDeck1 pDeck)
+	public void visitDeck(Deck pDeck)
 	{
 		for( Card card : pDeck)
 		{

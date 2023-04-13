@@ -39,7 +39,7 @@ public class StructurePrinterVisitor extends AbstractCardSourceVisitor
 	}
 
 	@Override
-	public void visitDeck(ObserverDeck1 pDeck)
+	public void visitDeck(Deck pDeck)
 	{
 		System.out.println(tab() + "Deck");
 	}

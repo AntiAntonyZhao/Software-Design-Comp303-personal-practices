@@ -23,7 +23,7 @@ public class AbstractCardSourceVisitor implements CardSourceVisitor
 	}
 
 	@Override
-	public void visitDeck(ObserverDeck1 pDeck)
+	public void visitDeck(Deck pDeck)
 	{}
 
 	@Override

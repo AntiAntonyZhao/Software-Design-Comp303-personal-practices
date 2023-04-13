@@ -19,7 +19,7 @@ public interface CardSourceVisitor
 {
 	void visitCompositeCardSource(CompositeCardSource pCompositeCardSource);
 
-	void visitDeck(ObserverDeck1 pDeck);
+	void visitDeck(Deck pDeck);
 
 	void visitCardSequence(CardSequence pCardSequence);
 }
