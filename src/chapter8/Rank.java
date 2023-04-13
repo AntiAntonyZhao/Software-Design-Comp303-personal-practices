@@ -9,24 +9,12 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
-public class AbstractCardSourceVisitor implements CardSourceVisitor
-{
-	@Override
-	public void visitCompositeCardSource(CompositeCardSource pCompositeCardSource)
-	{
-		for( CardSource source : pCompositeCardSource )
-		{
-			source.accept(this);
-		}
-	}
-
-	@Override
-	public void visitDeck(Deck pDeck)
-	{}
-
-	@Override
-	public void visitCardSequence(CardSequence pCardSequence)
-	{}
+/**
+ * Represents the rank of a playing card.
+ */
+public enum Rank 
+{ 
+	ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING 
 }

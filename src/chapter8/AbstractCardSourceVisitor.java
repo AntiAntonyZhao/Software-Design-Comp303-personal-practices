@@ -9,21 +9,10 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
-/**
- * Simple visitor that prints all cards in the source, in
- * no specified order.
- */
-public class PrintVisitor implements CardSourceVisitor
+public class AbstractCardSourceVisitor implements CardSourceVisitor
 {
-	public static void main(String[] args)
-	{
-		PrintVisitor visitor = new PrintVisitor();
-		Deck deck = new Deck();
-		deck.accept(visitor);
-	}
-	
 	@Override
 	public void visitCompositeCardSource(CompositeCardSource pCompositeCardSource)
 	{
@@ -34,20 +23,10 @@ public class PrintVisitor implements CardSourceVisitor
 	}
 
 	@Override
-	public void visitDeck(Deck pDeck)
-	{
-		for( Card card : pDeck)
-		{
-			System.out.println(card);
-		}
-	}
+	public void visitDeck(ObserverDeck1 pDeck)
+	{}
 
 	@Override
 	public void visitCardSequence(CardSequence pCardSequence)
-	{
-		for( int i = 0; i < pCardSequence.size(); i++ )
-		{
-			System.out.println(pCardSequence.get(i));
-		}
-	}
+	{}
 }

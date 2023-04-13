@@ -9,12 +9,17 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
 /**
- * Represents the rank of a playing card.
+ * Defines the ability to visit all types of card sources in
+ * a composite structure.
  */
-public enum Rank 
-{ 
-	ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING 
+public interface CardSourceVisitor
+{
+	void visitCompositeCardSource(CompositeCardSource pCompositeCardSource);
+
+	void visitDeck(ObserverDeck1 pDeck);
+
+	void visitCardSequence(CardSequence pCardSequence);
 }

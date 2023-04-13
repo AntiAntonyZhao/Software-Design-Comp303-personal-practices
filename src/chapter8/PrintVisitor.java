@@ -9,44 +9,45 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
 /**
- * Visitor that prints a representation of the hierarchical structure
- * of a card source.
+ * Simple visitor that prints all cards in the source, in
+ * no specified order.
  */
-public class StructurePrinterVisitor extends AbstractCardSourceVisitor
+public class PrintVisitor implements CardSourceVisitor
 {
-	private int aTab = 0;
-	
-	private String tab()
+	public static void main(String[] args)
 	{
-		StringBuilder result = new StringBuilder();
-		for( int i = 0; i < aTab; i++ )
-		{
-			result.append(" ");
-		}
-		return result.toString();
+		PrintVisitor visitor = new PrintVisitor();
+		ObserverDeck1 deck = new ObserverDeck1();
+		deck.accept(visitor);
 	}
 	
 	@Override
 	public void visitCompositeCardSource(CompositeCardSource pCompositeCardSource)
 	{
-		System.out.println(tab() + "Composite");
-		aTab++;
-		super.visitCompositeCardSource(pCompositeCardSource);
-		aTab--;
+		for( CardSource source : pCompositeCardSource )
+		{
+			source.accept(this);
+		}
 	}
 
 	@Override
-	public void visitDeck(Deck pDeck)
+	public void visitDeck(ObserverDeck1 pDeck)
 	{
-		System.out.println(tab() + "Deck");
+		for( Card card : pDeck)
+		{
+			System.out.println(card);
+		}
 	}
 
 	@Override
 	public void visitCardSequence(CardSequence pCardSequence)
 	{
-		System.out.println(tab() + "CardSequence");
+		for( int i = 0; i < pCardSequence.size(); i++ )
+		{
+			System.out.println(pCardSequence.get(i));
+		}
 	}
 }

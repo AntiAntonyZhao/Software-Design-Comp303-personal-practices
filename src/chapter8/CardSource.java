@@ -9,38 +9,31 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
 /**
- * A visitor to compute the total number of cards in a card 
- * source.
+ * Represents an entity from which it is possible to obtain cards.
+ * This version is visitable.
  */
-public class CountingVisitor extends AbstractCardSourceVisitor
+public interface CardSource
 {
-	private int aCount = 0;
+	/**
+	 * Returns a card from the source.
+	 *
+	 * @return The next available card.
+	 * @pre !isEmpty()
+	 */
+	Card draw();
 	
-	@Override
-	public void visitDeck(Deck pDeck)
-	{
-		for( @SuppressWarnings("unused") Card card : pDeck)
-		{
-			aCount++;
-		}
-	}
-
-	@Override
-	public void visitCardSequence(CardSequence pCardSequence)
-	{
-		aCount += pCardSequence.size();
-	}
+	/**
+	 * @return True if there is no card in the source.
+	 */
+	boolean isEmpty();
 	
-	public int getCount() 
-	{ 
-		return aCount; 
-	}
-	
-	public void reset()
-	{
-		aCount = 0;
-	}
+	/**
+	 * Accepts a visitor for traversal into this structure.
+	 * 
+	 * @param pVisitor The visitor to accept
+	 */
+	void accept(CardSourceVisitor pVisitor);
 }

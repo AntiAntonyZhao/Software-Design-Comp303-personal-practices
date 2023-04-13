@@ -9,7 +9,7 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
 /**
  * A visitor that checks whether a card is contained in a card source 
@@ -31,7 +31,7 @@ public class ChecksContainmentVisitor extends AbstractCardSourceVisitor
 	}
 	
 	@Override
-	public void visitDeck(Deck pDeck)
+	public void visitDeck(ObserverDeck1 pDeck)
 	{
 		for( Card card : pDeck)
 		{

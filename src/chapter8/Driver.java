@@ -7,7 +7,7 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter81;
+package chapter8;
 
 public class Driver
 {
@@ -59,7 +59,7 @@ public class Driver
 	{
 		CardSequence sequence = new CardSequence(Card.get(Rank.ACE, Suit.CLUBS), Card.get(Rank.ACE, Suit.DIAMONDS),
 				Card.get(Rank.ACE, Suit.HEARTS), Card.get(Rank.ACE, Suit.HEARTS));
-		CompositeCardSource composite = new CompositeCardSource(new Deck(), sequence);
-		return new CompositeCardSource(new Deck(), composite);
+		CompositeCardSource composite = new CompositeCardSource(new ObserverDeck1(), sequence);
+		return new CompositeCardSource(new ObserverDeck1(), composite);
 	}
 }
