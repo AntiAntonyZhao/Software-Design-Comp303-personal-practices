@@ -1,5 +1,5 @@
 # Comp303 practices
-- Containing the implementations and practices from [https://github.com/prmr/DesignBook/tree/master ](https://github.com/prmr/DesignBook/tree/master/exercises) in order to hava a better understanding of the course and text book <Introduction to Software Design with Java>.
+- Containing the implementations and practices from [https://github.com/prmr/DesignBook/tree/master](https://github.com/prmr/DesignBook/tree/master/exercises) in order to hava a better understanding of the course and text book <Introduction to Software Design with Java>.
 ## Topics:
 ### Chapter 1: Prepration & Introduction
 ### Chapter 2: Encapsulation
