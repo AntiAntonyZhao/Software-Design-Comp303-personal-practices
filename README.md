@@ -7,8 +7,8 @@
 ### [Chapter 4: Object State](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter4)
 ### [Chapter 5: Unit Testing](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter5)
 ### [Chapter 6: Composition](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter6)
-### [Chapter 7: Inheritance](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter7))
-### [Chapter 8: Inversion of Control]
-### [Chapter 9: Functional Design]()
+### [Chapter 7: Inheritance](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter7)
+### [Chapter 8: Inversion of Control](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter8)
+### [Chapter 9: Functional Design](https://github.com/AntiAntonyZhao/Software-Design-Comp303-personal-practices/tree/main/src/chapter9)
 
  
