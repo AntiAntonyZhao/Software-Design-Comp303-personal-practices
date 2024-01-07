@@ -9,14 +9,14 @@
  * 
  * See http://creativecommons.org/licenses/by-nc-nd/4.0/
  *******************************************************************************/
-package chapter71;
+package chapter8;
 
 /**
  * Implementation of a playing card. This class yields immutable objects.
  * This version of the class shows an application of the Flyweight design
  * pattern where the flyweight store is pre-initialized.
  */
-public class Card
+public class Card 
 {
 	// Flyweight store
 	private static final Card[][] CARDS = new Card[Suit.values().length][Rank.values().length];
